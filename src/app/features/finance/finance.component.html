@@ -1,1 +1,35 @@
-<p>finance works!</p>
+<div class="flex h-[calc(100vh-64px)] -m-8 relative">
+    <!-- Mobile Menu Toggle -->
+    <button *ngIf="!sidebarOpen" (click)="toggleSidebar()"
+        class="md:hidden fixed top-20 left-4 z-[1001] bg-primary text-white border-none rounded-full w-12 h-12 flex items-center justify-center shadow-lg shadow-primary/40 cursor-pointer transition-all duration-150 hover:scale-110">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div *ngIf="sidebarOpen" (click)="toggleSidebar()"
+        class="md:hidden fixed inset-0 bg-black/50 z-[999] opacity-100 transition-opacity duration-300"></div>
+
+    <!-- Sidebar Wrapper -->
+    <div [class.translate-x-0]="sidebarOpen"
+        class="md:relative md:translate-x-0 fixed top-0 left-0 bottom-0 z-[1000] -translate-x-full transition-transform duration-300 shadow-[2px_0_12px_rgba(0,0,0,0.15)]">
+        <button (click)="toggleSidebar()"
+            class="md:hidden absolute top-4 right-4 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <app-finance-sidebar></app-finance-sidebar>
+    </div>
+
+    <div class="flex-1 flex flex-col bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <app-finance-header></app-finance-header>
+        <div class="flex-1 overflow-y-auto p-8">
+            <app-finance-table></app-finance-table>
+        </div>
+    </div>
+</div>

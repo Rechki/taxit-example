@@ -147,6 +147,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       width: 20px;
       height: 20px;
     }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 1000;
+        transition: transform var(--transition-normal);
+      }
+
+      .sidebar.mobile-open {
+        transform: translateX(0);
+      }
+    }
   `]
 })
 export class SidebarComponent { }

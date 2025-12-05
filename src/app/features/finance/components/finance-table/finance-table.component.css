@@ -1,0 +1,11 @@
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    .bg-white.border {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .flex.items-center {
+        min-width: 600px;
+    }
+}

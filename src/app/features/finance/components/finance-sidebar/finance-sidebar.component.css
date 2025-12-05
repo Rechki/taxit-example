@@ -1,0 +1,7 @@
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .w-\[300px\] {
+        width: 280px;
+        max-width: 85vw;
+    }
+}

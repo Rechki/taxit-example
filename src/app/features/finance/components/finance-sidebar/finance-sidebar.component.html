@@ -1,1 +1,27 @@
-<p>finance-sidebar works!</p>
+<div class="w-[300px] bg-gradient-to-b from-gray-50 to-white border-r border-gray-200 flex flex-col h-full shadow-sm">
+    <div class="p-6 bg-primary text-white">
+        <h3 class="text-lg font-semibold leading-tight m-0">Neuen Finanzdateneintrag erfassen</h3>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4">
+        <div *ngFor="let category of categories"
+            class="mb-4 bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md hover:border-primary">
+            <div class="p-4 font-semibold text-[15px] cursor-pointer flex justify-between items-center bg-gradient-to-r from-gray-50 to-white transition-all duration-150 hover:from-gray-200 hover:to-gray-50"
+                (click)="toggleCategory(category.id)">
+                <span>{{ category.title }}</span>
+                <svg class="w-4 h-4 text-primary transition-transform duration-300"
+                    [class.rotate-180]="category.expanded" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+
+            <div *ngIf="category.expanded" class="flex flex-col gap-2 p-2 pb-4 px-4 bg-gray-50">
+                <button *ngFor="let item of category.items"
+                    class="px-4 py-2 text-sm text-gray-900 cursor-pointer border border-indigo-100 rounded-md text-center bg-white transition-all duration-150 font-medium hover:border-primary hover:bg-indigo-50 hover:text-primary hover:-translate-y-px hover:shadow-sm hover:shadow-primary/20">
+                    {{ item }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

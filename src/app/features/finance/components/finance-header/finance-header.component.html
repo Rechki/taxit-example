@@ -1,1 +1,46 @@
-<p>finance-header works!</p>
+<div class="flex flex-col bg-white border-b-2 border-gray-200 shadow-sm">
+    <!-- Top Navigation Tabs -->
+    <div class="flex gap-0 px-8 border-b border-gray-200 overflow-x-auto scrollbar-hide">
+        <button *ngFor="let tab of tabs"
+            class="px-6 py-4 bg-transparent border-none text-gray-400 text-sm cursor-pointer border-b-2 border-transparent transition-all duration-150 font-medium hover:text-gray-900 whitespace-nowrap"
+            [class.!text-gray-900]="activeTab === tab.id" [class.!border-primary]="activeTab === tab.id"
+            (click)="setActiveTab(tab.id)">
+            {{ tab.label }}
+        </button>
+    </div>
+
+    <!-- Submenu (shown when erfassung is active) -->
+    <div *ngIf="activeTab === 'erfassung'"
+        class="flex gap-2 px-8 py-2 bg-gray-50 border-b border-gray-200 overflow-x-auto scrollbar-hide">
+        <button *ngFor="let item of submenuItems"
+            class="px-4 py-1 bg-white border border-indigo-100 rounded-md text-gray-900 text-xs cursor-pointer transition-all duration-150 font-medium uppercase tracking-wide whitespace-nowrap hover:border-primary hover:bg-indigo-50"
+            [class.!bg-primary]="activeSubmenu === item.id" [class.!text-white]="activeSubmenu === item.id"
+            [class.!border-primary]="activeSubmenu === item.id" (click)="setActiveSubmenu(item.id)">
+            {{ item.label }}
+        </button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between items-center px-8 py-4 md:flex-row flex-col md:gap-0 gap-2">
+        <div class="flex md:w-auto w-full justify-center">
+            <button
+                class="inline-flex items-center justify-center px-4 py-2 text-sm gap-2 font-medium transition-all duration-150 bg-white border-2 border-primary text-primary rounded-md hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                alle zuklappen
+            </button>
+        </div>
+
+        <div class="flex gap-4 md:flex-row flex-col md:w-auto w-full">
+            <button
+                class="inline-flex items-center justify-center px-4 py-2 text-sm gap-2 font-medium transition-all duration-150 bg-white border-2 border-primary text-primary rounded-md hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 md:w-auto w-full">
+                Vermögensübersicht
+            </button>
+            <button
+                class="inline-flex items-center justify-center px-4 py-2 text-sm gap-2 font-medium transition-all duration-150 bg-white border-2 border-primary text-primary rounded-md hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 md:w-auto w-full">
+                Finanzdaten kombinieren
+            </button>
+        </div>
+    </div>
+</div>

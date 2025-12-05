@@ -1,0 +1,6 @@
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .ml-\[250px\] {
+        margin-left: 0;
+    }
+}
