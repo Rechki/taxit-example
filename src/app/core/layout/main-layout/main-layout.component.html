@@ -1,14 +1,13 @@
-<div class="flex min-h-screen">
+<div class="flex min-h-screen bg-gray-50">
     <app-sidebar></app-sidebar>
-    <div class="flex-1 ml-[250px] md:ml-[250px] mobile:ml-0 flex flex-col">
+    <div class="flex-1 ml-[250px] flex flex-col">
         <app-header></app-header>
-        <main class="flex-1 p-8 md:p-4 mobile:p-2 bg-gray-50">
+        <main class="flex-1 overflow-auto">
             <router-outlet></router-outlet>
         </main>
-        <footer
-            class="p-6 md:p-4 mobile:p-2 bg-white border-t border-gray-200 flex md:flex-col mobile:flex-col justify-between items-center md:gap-2 mobile:gap-2 text-xs text-gray-500 md:text-center mobile:text-center">
+        <footer class="p-6 bg-white border-t border-gray-200 flex justify-between items-center text-xs text-gray-500">
             <p>© 2025 Taxit. Your data is protected with bank-level security.</p>
-            <div class="flex md:flex-col mobile:flex-col gap-6 md:gap-4 mobile:gap-2 items-center">
+            <div class="flex gap-6 items-center">
                 <a href="#" class="text-gray-500 no-underline hover:text-gray-900">Privacy Policy</a>
                 <a href="#" class="text-gray-500 no-underline hover:text-gray-900">Support</a>
                 <span class="flex items-center gap-1">
